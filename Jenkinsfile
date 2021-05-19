@@ -1,11 +1,6 @@
 pipeline {
     agent any
     stages {        
-        //stage('git checkout') {
-        //    steps {
-        //        git 'https://github.com/ernestk86/jenkins-lab.git'
-        //    }
-        //}
         stage('Build') {
             steps {
                 sh 'javac Hello.java'
@@ -15,6 +10,11 @@ pipeline {
             steps {
                 sh 'java Hello'
             }
+        }
+    }
+    post {
+        always {
+            emailext body: 'A Test EMail', to: 'ernest.kim@cognizant.com', subject: 'Build triggered'
         }
     }
 }
