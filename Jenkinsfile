@@ -14,7 +14,7 @@ pipeline {
     }
     post {
         always {
-            emailext body: 'A Test EMail', to: 'ernest.kim@cognizant.com', subject: 'Build triggered'
+            emailext body: 'A Test EMail', to: 'ernest.kim@revature.net', subject: 'Build triggered'
         }
     }
 }
